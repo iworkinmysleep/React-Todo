@@ -45,7 +45,7 @@ class App extends React.Component {
 				...this.state.todos,
 				{ task: todoTask, id: Date.now(), completed: false },
 			],
-		});
+    });
 	};
 
 	clearCompleted = () => {

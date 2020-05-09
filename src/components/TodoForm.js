@@ -18,12 +18,16 @@ class TodoForm extends Component {
 		e.preventDefault();
 		if (this.state.newTodo) {
 			this.props.addNewTodo(this.state.newTodo);
-		}
+    }
+    this.setState({
+      newTodo: ''
+    })
 	};
 	render() {
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<input
+					id="form"
 					type="text"
 					placeholder="Enter Todo....."
 					value={this.state.newTodo}
