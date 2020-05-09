@@ -2,6 +2,7 @@ import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import Todo from "./components/Todo";
+import './App.css'
 
 
 const todos = [
@@ -47,14 +48,21 @@ class App extends React.Component {
 		});
 	};
 
+	clearCompleted = () => {
+		this.setState({
+			todos: this.state.todos.filter((todo) => !todo.completed),
+		});
+	};
+
 	render() {
 		return (
-			<div>
-				<h2>Welcome to your Todo App!</h2>
+			<div className='todo_container'>
+				<h1>Welcome to your Todo App!</h1>
 				<TodoForm addNewTodo={this.addNewTodo} />
 				<TodoList
 					toggleCompleted={this.toggleCompleted}
-					todos={this.state.todos}
+          todos={this.state.todos}
+          clearCompleted={this.clearCompleted} 
 				/>
 			</div>
 		);
